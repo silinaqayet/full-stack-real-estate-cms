@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Design tokens. Every color/font utility below is generated from these. */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+
+  /* Gold — the accent. Used sparingly: rules, labels, hover states. */
+  --color-gold-50: #fdfaf3;
+  --color-gold-100: #faf3e2;
+  --color-gold-200: #f2e3bd;
+  --color-gold-300: #e7cd8f;
+  --color-gold-400: #d9b25e;
+  --color-gold-500: #c99a3c;
+  --color-gold-600: #ad7d2c;
+  --color-gold-700: #8a6124;
+
+  /* Ink — warm near-black neutrals for text and lines. */
+  --color-ink-50: #faf9f7;
+  --color-ink-100: #f0eeea;
+  --color-ink-200: #e0ddd6;
+  --color-ink-300: #c2beb4;
+  --color-ink-400: #928d82;
+  --color-ink-500: #6e6a61;
+  --color-ink-600: #55514a;
+  --color-ink-700: #403d38;
+  --color-ink-800: #2b2926;
+  --color-ink-900: #1a1917;
+  --color-ink-950: #0f0e0d;
+}
+
+/* Defaults for plain HTML tags, so page files stay clean. */
+@layer base {
+  body {
+    @apply bg-gold-50 font-sans text-ink-500 antialiased;
+  }
+
+  h1 {
+    @apply font-display text-4xl font-normal tracking-tight text-ink-900 sm:text-5xl;
+  }
+
+  h2 {
+    @apply font-display text-2xl font-normal tracking-tight text-ink-900 sm:text-3xl;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  /* Visible keyboard focus ring across the whole site */
+  :focus-visible {
+    @apply outline-1 outline-offset-4 outline-gold-500;
+  }
+}
+
+/* Small uppercase label — the recurring "luxury" typographic device. */
+@utility eyebrow {
+  @apply text-xs uppercase tracking-[0.2em] text-gold-600;
+}
+
+/* Dikey ritim. Bölümler arası tek boşluk ölçüsü: buradan ayarlanır. */
+@utility section-gap {
+  @apply mt-24 sm:mt-32;
+}
+
+/* Başlık bloğu ile içeriği arasındaki boşluk. */
+@utility content-gap {
+  @apply mt-14;
+}
+
+/* Admin form parçaları. Üç form da bunları kullanır. */
+@utility form-label {
+  @apply block text-[11px] uppercase tracking-[0.2em] text-ink-500;
+}
+
+@utility form-input {
+  @apply mt-2 w-full border border-ink-200 bg-white px-4 py-2.5 text-ink-900
+    focus:border-gold-500 focus:outline-none;
+}
+
+@utility form-error {
+  @apply mt-1 text-sm text-red-700;
+}
+
+@utility btn-solid {
+  @apply bg-ink-900 px-8 py-3 text-[11px] uppercase tracking-[0.2em] text-white
+    transition hover:bg-ink-800 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@utility btn-outline {
+  @apply inline-block border border-ink-300 px-8 py-3 text-[11px] uppercase
+    tracking-[0.2em] text-ink-600 transition hover:bg-ink-50
+    disabled:cursor-not-allowed disabled:opacity-50;
+}
